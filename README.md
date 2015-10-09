@@ -1,34 +1,34 @@
-delete-button
+delete-link
 =========================
 
-A Meteor package that provides a delete button UI component. This was formerly provided by the [AutoForm](https://github.com/aldeed/meteor-autoform) package as `afDeleteButton`, but it had very little to do with autoform, so it was moved to this separate package.
+A Meteor package that provides a delete anchor element UI component. This was formerly provided by the [AutoForm](https://github.com/aldeed/meteor-autoform) package as `afDeleteButton`, but it had very little to do with autoform, so it was moved to this separate package. This package itself is a fork of [aldeed:delete-button](https://github.com/aldeed/meteor-delete-button)
 
 ## Installation
 
 In your Meteor app directory, enter:
 
 ```
-$ meteor add aldeed:delete-button
+$ meteor add cunneen:delete-link
 ```
 
 ## Usage
 
-The UI component, `quickRemoveButton`, can be used with or without a block:
+The UI component, `quickRemoveLink`, can be used with or without a block:
 
 ```html
-{{> quickRemoveButton collection="TestCollection" _id=this._id}}
+{{> quickRemoveLink collection="TestCollection" _id=this._id}}
 
 <!-- OR -->
 
-{{#quickRemoveButton collection="TestCollection" _id=this._id}}Delete Me{{/quickRemoveButton}}
+{{#quickRemoveLink collection="TestCollection" _id=this._id}}Delete Me{{/quickRemoveLink}}
 ```
 
-When used without block content, the content of the delete button will be the word "Delete".
+When used without block content, the content of the delete anchor element will be the word "Delete".
 
 At minimum, you need to provide the `collection` and `_id` attributes:
 
 * `collection`: Set this to a helper that returns a `Meteor.Collection` instance or to a string that identifies a `Meteor.Collection` instance that is in the `window` scope.
-* `_id`: Set this to the `_id` of the document you want the button to remove.
+* `_id`: Set this to the `_id` of the document you want the link to remove.
 
 You can optionally provide `onError`, `onSuccess`, and `beforeRemove` attributes, which should be set to helpers that return functions:
 
@@ -46,7 +46,7 @@ You can optionally provide `onError`, `onSuccess`, and `beforeRemove` attributes
     {{#each docs}}
     <div class="panel panel-default">
       <div class="panel-body">
-      {{this.name}} | {{> quickRemoveButton collection="Collections.TestCollection" _id=this._id onError=onError onSuccess=onSuccess beforeRemove=beforeRemove class="btn btn-danger"}}
+      {{this.name}} | {{> quickRemoveLink collection="Collections.TestCollection" _id=this._id onError=onError onSuccess=onSuccess beforeRemove=beforeRemove class="btn btn-danger"}}
       </div>
     </div>
     {{/each}}
