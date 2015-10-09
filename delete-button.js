@@ -1,4 +1,4 @@
-Template.quickRemoveButton.helpers({
+Template.quickRemoveLink.helpers({
   atts: function () {
     var context = this, atts = {};
     for (var prop in context) {
@@ -11,24 +11,22 @@ Template.quickRemoveButton.helpers({
         atts[prop] = context[prop];
       }
     }
-    if (!atts.type) {
-      atts.type = "button";
-    }
+    
     return atts;
   }
 });
 
-Template.quickRemoveButton.events({
-  'click button': function (event, template) {
+Template.quickRemoveLink.events({
+  'click a': function (event, template) {
     var self = this;
     var collection = lookup(self.collection);
     if (typeof Meteor !== "undefined" && Meteor.Collection) {
       if (!(collection instanceof Meteor.Collection)) {
-        throw new Error("quickRemoveButton: collection attribute must be set to a Meteor.Collection instance or a string reference to a Meteor.Collection instance that is in the window scope.");
+        throw new Error("quickRemoveLink: collection attribute must be set to a Meteor.Collection instance or a string reference to a Meteor.Collection instance that is in the window scope.");
       }
     } else if (typeof Mongo !== "undefined" && Mongo.Collection) {
       if (!(collection instanceof Mongo.Collection)) {
-        throw new Error("quickRemoveButton: collection attribute must be set to a Mongo.Collection instance or a string reference to a Mongo.Collection instance that is in the window scope.");
+        throw new Error("quickRemoveLink: collection attribute must be set to a Mongo.Collection instance or a string reference to a Mongo.Collection instance that is in the window scope.");
       }
     }
     var onError = self.onError || function (error) {
