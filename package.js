@@ -1,8 +1,8 @@
 Package.describe({
-  name: "aldeed:delete-button",
+  name: "cunneen:delete-link",
   version: "1.0.0",
-  summary: "Provides a delete button UI component",
-  git: "https://github.com/aldeed/meteor-delete-button.git"
+  summary: "Provides a delete anchor element (link) UI component",
+  git: "https://github.com/cunneen/meteor-delete-link.git"
 });
 
 Package.on_use(function(api) {
